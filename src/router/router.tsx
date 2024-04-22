@@ -1,11 +1,12 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import Feed from "../views/Feed";
+import MainLayout from "../components/layout/MainLayout";
 
 class Router {
   get Home(): RouteObject {
     return {
       path: "/",
-      element: "",
+      element: <MainLayout />,
       children: [this.Feed],
     };
   }
