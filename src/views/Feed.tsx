@@ -1,4 +1,10 @@
+import NewsItem from "../components/common/NewsItem";
+
 const Feed = () => {
-  return <></>;
+  return (
+    <>
+      <NewsItem />
+    </>
+  );
 };
 export default Feed;
