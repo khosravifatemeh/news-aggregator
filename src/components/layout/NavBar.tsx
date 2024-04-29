@@ -1,22 +1,22 @@
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
+import { useState } from "react";
+import { useNavItems } from "../../hooks/layout/useNavItems";
+import NavbarContent from "./NavbarContent";
+import NavbarDrawer from "./NavbarDrawer";
 
-const NavBar = () => {
+const Navbar: React.FC = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const navItems = useNavItems();
+
   return (
-    <header>
-      <AppBar position="static">
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            sx={{ mr: 2, display: { sm: "none" } }}
-          ></IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            AllInOne
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </header>
+    <>
+      <NavbarContent navItems={navItems} setMobileOpen={setMobileOpen} />
+      <NavbarDrawer
+        navItems={navItems}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
+    </>
   );
 };
-export default NavBar;
+
+export default Navbar;
