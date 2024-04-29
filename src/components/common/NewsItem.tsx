@@ -1,21 +1,22 @@
-import { Card, CardHeader, CardMedia } from "@mui/material";
-
-const NewsItem = () => {
+import { Card, CardContent, Typography } from "@mui/material";
+import { NewsItem } from "../../core/interfaces/NewsInterface";
+interface NewsItemProps {
+  article: NewsItem;
+  style: any;
+}
+const NewsItemComponent: React.FC<NewsItemProps> = ({ article, style }) => {
   return (
-    <>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardHeader
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
-        />
-        <CardMedia
-          component="img"
-          height="194"
-          image="https://fakeimg.pl/250x100/"
-          alt="Paella dish"
-        />
-      </Card>
-    </>
+    <Card>
+      <CardContent sx={{ flex: "1 0 auto" }}>
+        <Typography component="div" variant="h5">
+          {article?.name}
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary" component="div">
+          {article?.author}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
-export default NewsItem;
+
+export default NewsItemComponent;
